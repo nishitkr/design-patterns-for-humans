@@ -209,7 +209,7 @@ $marketingManager = new MarketingManager();
 $marketingManager->takeInterview(); // Output: Asking about community building.
 ```
 
-Another example:
+Another programming example(in Java, considering the Door use case) :
 
 ```java
 interface Door
