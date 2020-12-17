@@ -209,6 +209,63 @@ $marketingManager = new MarketingManager();
 $marketingManager->takeInterview(); // Output: Asking about community building.
 ```
 
+Another example:
+
+```java
+interface Door
+{
+    String getDetails();
+}
+
+class WoodenDoor implements Door {
+    String getDetails() {
+        return "The door is made of the finest quality of wood with a life of at least 70 years."
+    }
+}
+
+class IronDoor implements Door {
+    String getDetails() {
+        return "The door is made of iron with water-proof coating."
+    }
+}
+```
+
+```java
+abstarct class DoorShop {
+    abstract Door makeDoor();
+    
+    String describeDoor() {
+        System.out.println(this.makeDoor().getDetails());
+    }
+}
+
+class WoodenDoorShop extends DoorShop {
+    protected Door makeDoor() {
+        return new WoodenDoor();
+    }
+}
+
+class IronDoorShop extends DoorShop {
+    protected Door makeDoor() {
+        return new IronDoor();
+    }
+}
+```
+
+```java
+class DoorSupplier {
+    
+    public static void main(String[] args) {
+        DoorShop woodenDoorShop = new WoodenDoorShop();
+        woodenDoorShop.describeDoor();
+        
+        DoorShop ironDoorShop = new IronDoorShop();
+        ironDoorShop.describeDoor();
+    }
+}
+```
+
+
 **When to use?**
 
 Useful when there is some generic processing in a class but the required sub-class is dynamically decided at runtime. Or putting it in other words, when the client doesn't know what exact sub-class it might need.
